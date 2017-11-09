@@ -1,0 +1,12 @@
+#cadastro {
+    font-size: 17px;
+}
+
+.botao-cadastrar {
+    background-color: #57CCD5;
+    color: #ffffff;
+    padding: 15px 20px;
+    font-size: 20px;
+    border: 0;
+    cursor: pointer;
+}

@@ -1,0 +1,336 @@
+/* color main --- #1C232D */
+
+
+/* color main --- #222B3C */
+
+
+/* color main --- #57CCD5 */
+
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+
+.body-home {
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
+    background-color: #E4E4E4;
+    background-image: linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image: -webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image: -ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0, #A7A7A7), color-stop(0.51, #E4E4E4));
+    background-attachment: fixed;
+    font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    text-transform: uppercase;
+    width: 100%;
+    background-color: #32383d;
+    font-family: 'RobotoRegular', 'Droid Sans', 'Segoe UI', Segoe, 'San Francisco', 'Helvetica Neue', Helvetica, Arial, Geneva, sans-serif;
+    font-size: 12px;
+}
+
+.home {
+    background: url(../images/cordova.png) no-repeat center top;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 50px;
+    width: 225px;
+    text-align: center;
+    padding: 180px 0px 0px 0px;
+    margin: -115px 0px 0px -112px;
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app-home {
+        background-position: left center;
+        padding: 75px 0px 75px 170px;
+        margin: -90px 0px 0px -198px;
+    }
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0px;
+    overflow: visible;
+    padding: 0px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0px;
+    overflow: visible;
+    padding: 0px;
+    text-align: left;
+}
+
+.event input {
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    color: #FFFFFF;
+    font-size: 12px;
+    margin: 0px 30px;
+    padding: 2px 0px;
+}
+
+@keyframes fade {
+    from {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1.0;
+    }
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1.0;
+    }
+}
+
+#header {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #222B3C;
+}
+
+#footer {
+    padding: 20px 0;
+    text-align: center;
+    background-color: #222B3C;
+    border-top: 5px solid #57CCD5;
+    font-size: 18px;
+    color: #ffffff;
+    margin: auto;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+}
+
+#menus {
+    height: 200px;
+    border-style: double;
+    background: -webkit-gradient(linear, left top, left bottom, from(#97aa82), to(#6a8479)) repeat-X;
+    font-size: 17px;
+    color: #2f3f4e;
+}
+
+.background {
+    background-color: #1C232D;
+}
+
+a.fill-div {
+    text-align: center;
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    position: relative;
+    top: 50%;
+    color: antiquewhite;
+}
+
+.glyphicon {
+    font-size: 25px;
+    color: black;
+}
+
+#contato {
+    height: 133px;
+    font-size: 17px;
+    color: #2f3f4e;
+}
+
+.title {
+    font-size: 22px;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.span--user {
+    color: #57CCD5;
+    font-weight: 600;
+}
+
+.span--bold {
+    font-weight: 600;
+}
+
+.link {
+    color: #57CCD5;
+}
+
+.button-100 {
+    background-color: #57CCD5;
+    display: block;
+    width: 98%;
+    margin: 5% auto 0 auto;
+    text-align: center;
+    padding: 3% 1% 3% 1%;
+    max-width: 600px;
+    color: #222B3C;
+    font-size: 18px;
+}
+
+.button-100:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.button__img {
+    width: 15%;
+    display: block;
+    margin: 10px auto 20px auto;
+}
+
+.button__img-2 {
+    width: 25%;
+    display: block;
+    margin: 10px auto 10px auto;
+}
+
+.button-2 {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+@media (max-width: 400px) {
+    .button-2 {
+        font-size: 15px;
+        font-weight: 600;
+    }
+}
+
+@media (max-width: 340px) {
+    .button-2 {
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+
+.check {
+    color: #fff;
+    line-height: 60px;
+}
+
+.check input[type="checkbox"] {
+    display: none;
+}
+
+.check input[type="checkbox"] {
+    color: #f2f2f2;
+}
+
+.check input[type="checkbox"] {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin: 4px 10px 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+
+/* header */
+
+.logo {
+    font-size: 28px;
+    color: #ffffff;
+}
+
+.logo span {
+    font-weight: 600;
+    color: #57CCD5;
+}
+
+
+/* form */
+
+.form {}
+
+.form__input {
+    width: 100%;
+    max-width: 420px;
+    padding: 5px;
+    font-size: 16px;
+    color: #222B3C;
+    border: 0px solid #fff;
+}
+
+.item {
+    padding-bottom: 20px;
+}
+
+.form__label {
+    display: block;
+    color: #ffffff;
+}
+
+.contato {
+    padding: 20px 0;
+}
+
+.contato__img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+
+/*icon*/
+
+.add {
+    background-size: 100%;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-image: url(../images/icons/add.svg)
+}
+
+.user {
+    background-size: 100%;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-image: url(../images/icons/user-shape.svg)
+}
+
+.delete {
+    background-size: 100%;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-image: url(../images/icons/delete-cross.svg)
+}
+
+.camera {
+    background-size: 100%;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-image: url(../images/icons/photo-camera.svg)
+}
+
+.search {
+    background-size: 100%;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-image: url(../images/icons/search.svg)
+}
+
+.andre {
+		margin: 0 auto;
+}
