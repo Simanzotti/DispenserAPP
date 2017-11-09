@@ -22,7 +22,7 @@
             <div class="container">
                 <div class="row" style="margin-top: 10px;">
                     <div class="col-6">
-                        <a href="../pages/gerencial.html" class="button-100 button-2">
+                        <a href="../pages/teste.php" class="button-100 button-2">
                             <img src="../images/icons/settings.svg" class="button__img-2">Gerencial <br /> &nbsp;
                         </a>
                     </div>

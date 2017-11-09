@@ -1,8 +1,12 @@
 <?php
-$conecta = mysql_connect("localhost", "dispense_banco", "788898Iamand") or print (mysql_error());
-mysql_select_db("dispense_banco", $conecta) or print(mysql_error());
-print "Conexão e Seleção OK!";
-mysql_close($conecta);
+$host = "localhost";
+$usuario = "dispense_banco";
+$senha = "788898Iamand";
+$bd = "dispense_banco";
 
+$mysqli = new mysqli($host, $usuario, $senha, $bd);
+
+if($mysqli->connect_errno)
+        echo "Falha na conexão: (".$mysqli->connect_errno.") ".$mysqli->connect_error;
 ?>
 

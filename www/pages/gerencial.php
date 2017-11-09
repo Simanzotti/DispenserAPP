@@ -1,4 +1,20 @@
-﻿
+﻿<?php
+$connect = mysql_connect("localhost", "dispense_banco", "788898Iamand") or
+die('Não foi possível conectar');
+
+mysql_select_db("dispense_banco", $connect);
+
+echo "sussexo";
+$consulta = "SELECT * FROM TB_ADM";
+
+$con = $connect->query($consulta) or die($connect->error);
+
+echo "teste";
+
+mysql_close($connect);
+?>
+
+
 <html>
 
 <head>
@@ -24,15 +40,29 @@
 				<div class="container">
                     <h2 class="title">Cadastrar um usuário:</h2>
                 </div>
-				
-				<?php 
+
+				<?php
 				$sucesso = $_GET["sucesso"];
-				
-				if(!is_null($sucesso) && !empty($sucesso) && $sucesso == 1) { 
+
+				if(!is_null($sucesso) && !empty($sucesso) && $sucesso == 1) {
 				?>
 					<p>sucesso</p>
 				<?php } ?>
-				
+
+                    <table>
+                        <tr>
+                            <td>Nome</td>
+                            <td>Senha</td>
+                            <td>Perfil</td>
+                        </tr>
+                        <?php while ($dado = $con->fetch_array()){ ?>
+                        <tr>
+                            <td><?php echo $dado["NOME"]; ?></td>
+                            <td><?php echo $dado["SENHA"]; ?></td>
+                            <td><?php echo $dado["PERFIL"]; ?></td>
+                        </tr>
+                        <?php }?>
+                    </table>
 				
                 <form name="cad-usuario" action="form_gerencial.php" method="POST">
                     <div class="container">
