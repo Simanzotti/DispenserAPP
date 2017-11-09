@@ -10,8 +10,6 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-
-
 .body-home {
     -webkit-touch-callout: none;
     -webkit-text-size-adjust: none;
@@ -112,16 +110,14 @@ h2 {
 }
 
 #footer {
-    padding: 20px 0;
-    text-align: center;
-    background-color: #222B3C;
     border-top: 5px solid #57CCD5;
     font-size: 18px;
     color: #ffffff;
-    margin: auto;
-    width: 100%;
+    right: 0;
     bottom: 0;
-    position: fixed;
+    left: 0;
+    padding: 1rem;
+    text-align: center;
 }
 
 #menus {
@@ -263,7 +259,21 @@ a.fill-div {
 
 /* form */
 
-.form {}
+.form {
+    min-height: 80vh;
+}
+
+@media (max-width: 420px) {
+    .form {
+        min-height: 75vh;
+    }
+}
+
+@media (max-width: 400px) {
+    .form {
+        min-height: 65vh;
+    }
+}
 
 .form__input {
     width: 100%;
@@ -332,5 +342,5 @@ a.fill-div {
 }
 
 .andre {
-		margin: 0 auto;
+    margin: 0 auto;
 }

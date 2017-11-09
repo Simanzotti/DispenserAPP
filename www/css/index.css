@@ -28,7 +28,7 @@ body {
     width: 90%;
     max-width: 420px;
     text-align: center;
-    margin: 115px auto 0px auto;
+    margin: auto auto 0px auto;
     display: block;
 }
 
@@ -144,6 +144,13 @@ h1 {
 .img-logo {
     width: 100%;
     max-width: 170px;
+}
+
+@media (max-width: 400px) {
+    .img-logo {
+        width: 100%;
+        max-width: 130px;
+    }
 }
 
 .botao-acessar {
