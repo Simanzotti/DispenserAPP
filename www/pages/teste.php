@@ -8,7 +8,7 @@ $nome_do_banco = "dispense_banco";
 $conecta = mysql_connect("$servidor", "$nome_usuario", "$senha_usuario") or die (mysql_error());
 mysql_select_db("$nome_do_banco",$conecta) or die (mysql_error());
 
-$sql = mysql_query("SELECT * FROM TB_ADM");
+$sql = mysql_query("SELECT NOME, PERFIL FROM TB_ADM ORDER BY NOME");
 
 
 $tipo_usu = "ff";
@@ -36,26 +36,9 @@ $tipo_usu = "ff";
         </div>
 
         <div class="col-12" id="cadastro">
-            <div class="andre">
                 <div class="container">
                     <h2 class="title">Cadastrar um usuário:</h2>
                 </div>
-
-                <table>
-                    <tr>
-                        <td>Nome</td>
-                        <td>Senha</td>
-                        <td>Perfil</td>
-                    </tr>
-                    <?php while($n = mysql_fetch_array($sql)){ ?>
-                        <tr>
-                            <td><?php echo $n["NOME"]; ?></td>
-                            <td><?php echo $n["SENHA"]; ?></td>
-                            <td><?php echo $n["PERFIL"]; ?></td>
-                        </tr>
-                    <?php }?>
-                </table>
-
                 <?php
                 $sucesso = $_GET["sucesso"];
 
@@ -78,24 +61,39 @@ $tipo_usu = "ff";
                         <div class="item">
                             <label class="form__label">Perfil:</label>
                             <select name="perfil">
-                                <option value="adm">ADM</option>
-                                <option value="usuario">Usuário</option>
+                                <option value="Administrador">Administrador</option>
+                                <option value="Usuario">Usuário</option>
                             </select>
                         </div>
-                        <?php if($tipo_usu == "adm") {?>
                         <div class="item">
                             <button class="botao-cadastrar cadastrar-blue"> <span class="user" style=" width: 28PX;
                                 height: 28PX;
                                 margin-bottom: -6px;
                                 margin-right: 10px;"></span> Cadastrar!</button>
                         </div>
-                        <?php } ?>
                     </div>
                 </form>
 
-
-                <br />
-                <div class="container">
+            <div class="container">
+                <h2 class="title">Veja os usuário já cadastrados:</h2>
+                <table class="table" id="cor-letra">
+                    <tr>
+                        <td><b>Nome</b></td>
+                        <td><b>Nível de acesso</b></td>
+                        <td><b>Ação</b></td>
+                    </tr>
+                    <?php while($n = mysql_fetch_array($sql)){ ?>
+                        <tr>
+                            <td><?php echo $n["NOME"]; ?></td>
+                            <td><?php echo $n["PERFIL"]; ?></td>
+                            <td><a href="editar.php?nome=<?php echo $n["NOME"]; ?>"> Editar Usuário </a> |
+                                <a href="excluir_usu.php?nome=<?php echo $n["NOME"]; ?>">Excluir Usuário </a>
+                            </td>
+                        </tr>
+                    <?php }?>
+                </table>
+            </div>
+                <!--<div class="container">
                     <h2 class="title">Deletar usuário:</h2>
                     <div class="item">
                         <label class="form__label"></label>
@@ -112,8 +110,7 @@ $tipo_usu = "ff";
                             margin-bottom: -6px;
                             margin-right: 10px;"></span> Deletar usuário!</button>
                     </div>
-                </div>
-            </div>
+                </div> -->
         </div>
 
         <div class="col-12" id="footer">

@@ -4,7 +4,6 @@ die('Não foi possível conectar');
 
 mysql_select_db("dispense_banco", $connect);
 
-echo "sussexo";
 $consulta = "SELECT * FROM TB_ADM";
 
 $con = $connect->query($consulta) or die($connect->error);
