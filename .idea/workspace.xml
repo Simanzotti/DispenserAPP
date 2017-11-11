@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84cc94a9-29bc-47f4-a308-a927f6667b8e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/pages/edita_usuario.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/pages/editar.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/pages/excluir_usu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/gerencial.css" afterPath="$PROJECT_DIR$/www/css/gerencial.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/home.css" afterPath="$PROJECT_DIR$/www/css/home.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/pages/form_gerencial.php" afterPath="$PROJECT_DIR$/www/pages/form_gerencial.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/pages/gerencial.php" afterPath="$PROJECT_DIR$/www/pages/gerencial.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/pages/home.php" afterPath="$PROJECT_DIR$/www/pages/home.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/pages/teste.php" afterPath="$PROJECT_DIR$/www/pages/teste.php" />
-    </list>
+    <list default="true" id="84cc94a9-29bc-47f4-a308-a927f6667b8e" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +116,7 @@
     <handled-path value="$PROJECT_DIR$/platforms/browser/cordova/node_modules" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="365" />
     <option name="y" value="28" />
     <option name="width" value="1386" />
@@ -226,8 +215,7 @@
     <option name="totallyTimeSpent" value="19769000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-11" y="-11" width="1942" height="1056" extended-state="6" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
