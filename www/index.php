@@ -17,10 +17,8 @@
     <div class="app">
         <img src="images/cordova_logo.png" class="img-logo" />
         <h1 class="logo">Dispenser<span>APP</span></h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening">Conectando-se ao Dispositivo</p>
-        </div>
-        <form name="login">
+
+        <form name="login" action="../pages/loga_usu.php" method="POST">
             <div class="container">
 
                 <div class="item">
@@ -36,7 +34,7 @@
                 </div>
 
                 <div class="item">
-                    <button class="botao-acessar" type="button" onClick="loginUsuario()"> <span class="key" style=" width: 28PX;
+                    <button class="botao-acessar"> <span class="key" style=" width: 28PX;
                         height: 28PX;
                         margin-bottom: -6px;
                         margin-right: 10px;"></span> Login</button>

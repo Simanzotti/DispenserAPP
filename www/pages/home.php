@@ -1,4 +1,21 @@
-﻿<!DOCTYPE html>
+﻿<?php
+$servidor = "localhost";
+$nome_usuario = "dispense_banco";
+$senha_usuario = "788898Iamand";
+$nome_do_banco = "dispense_banco";
+$conecta = mysql_connect("$servidor", "$nome_usuario", "$senha_usuario") or die (mysql_error());
+mysql_select_db("$nome_do_banco",$conecta) or die (mysql_error());
+
+$date_dia = date("d");
+$date_mes = date("m");
+$date_ano = date("y");
+
+session_start();
+//$teste = $_SESSION['uname'];
+
+?>
+
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -46,7 +63,7 @@
                 </div>
             </div>
             <div class="col-12" id="footer">
-                Olá <span class="span--user">ADM</span>, hoje é dia <span class="span--bold">16/10/2017!</span> O produto mais próximo de vencimento é <span class="span--bold">31/12/2017!</span>
+                Olá <span class="span--user"><?php echo $_SESSION['uname'] ?></span>, hoje é dia <span class="span--bold"><?php echo $date_dia."/".$date_mes."/".$date_ano?></span> O produto mais próximo de vencimento é <span class="span--bold">31/12/2017!</span>
             </div>
         </div>
     </div>
