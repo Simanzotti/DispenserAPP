@@ -51,7 +51,7 @@ session_start();
                 </div>
                 <div class="row" style="margin-top: 10px;">
                     <div class="col-6">
-                        <a href="../pages/listaprod.html" class="button-100 button-2">
+                        <a href="../pages/listaprod.php" class="button-100 button-2">
                             <img src="../images/icons/list.svg" class="button__img-2">Lista de Produtos <br /> &nbsp;
                         </a>
                     </div>
@@ -63,7 +63,7 @@ session_start();
                 </div>
             </div>
             <div class="col-12" id="footer">
-                Olá <span class="span--user"><?php echo $_SESSION['uname'] ?></span>, hoje é dia <span class="span--bold"><?php echo $date_dia."/".$date_mes."/".$date_ano?></span> O produto mais próximo de vencimento é <span class="span--bold">31/12/2017!</span>
+                Olá <span class="span--user"><?php echo $_SESSION['uname'] ?></span>, hoje é dia <span class="span--bold"><?php echo $date_dia."/".$date_mes."/".$date_ano?></span>. O produto mais próximo de vencimento é <span class="span--bold">31/12/2017!</span>
             </div>
         </div>
     </div>

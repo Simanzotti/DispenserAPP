@@ -1,5 +1,4 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<html>
 
 <head>
     <meta http-equiv="Content-Security-Policy" content="default-src 'unsafe-inline' 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
@@ -8,6 +7,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
     <link rel="stylesheet" type="text/css" href="../bootstrap/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../bootstrap/bootstrap-datepicker.min.css">
     <link rel="stylesheet" type="text/css" href="../css/home.css">
@@ -28,11 +28,15 @@
                 <div class="container">
                     <h2 class="title">Cadastrar um produto manual:</h2>
                 </div>
-                <form name="cad-prod">
+                <form name="cad-prod" action="form_cadastro_prod.php" method="POST">
                     <div class="container">
                         <div class="item">
                             <label class="form__label">Nome:</label>
                             <input type="text" class="form__input" name="prod-name" required>
+                        </div>
+                        <div class="item">
+                            <label class="form__label">Tipo do produto:</label>
+                            <input type="text" class="form__input" name="prod-tipo" required>
                         </div>
                         <div class="item">
                             <label class="form__label">Código de Barras:</label>
@@ -40,7 +44,7 @@
                         </div>
                         <div class="item">
                             <label class="form__label">Data de validade:</label>
-                            <input type="text" class="form__input" id="datavalidade" required>
+                            <input type="text" class="form__input" id="datavalidade" name="data-validade" required>
                         </div>
                         <div class="item">
                             <button class="botao-cadastrar cadastrar-blue"><span class="add" style=" width: 28PX;
@@ -48,11 +52,20 @@
                                 margin-bottom: -6px;
                                 margin-right: 10px;"></span> Cadastrar Produto!</button>
                         </div>
+                        <?php
+                        $sucesso = $_GET["sucesso"];
+
+                        if(!is_null($sucesso) && !empty($sucesso) && $sucesso == 1) {
+                            ?>
+                            <div class="item">
+                                <label class="form__label">Produto cadastrado com sucesso! Acesse a lista de produtos para ve-lo!</label>
+                            </div>
+                        <?php } ?>
                     </div>
                 </form>
                 <div class="container">
                     <div class="item">
-                        <h2 class="title">Incluir produto previamente cadastrado:</h2>
+                        <h2 class="title">Obtenha os dados cadastrais do produto via celular:</h2>
                     </div>
 
                     <div class="item">
@@ -69,15 +82,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Sessão scripts -->
-
-    <script type="text/javascript">
-        $('.datepicker').datepicker({
-            format: 'mm/dd/yyyy',
-            startDate: '-3d'
-        });
-    </script>
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
