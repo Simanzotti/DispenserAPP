@@ -10,6 +10,8 @@ $con = mysql_connect("localhost", "dispense_banco", "788898Iamand") or
    
    mysql_select_db("dispense_banco", $con);
    mysql_query("INSERT INTO TB_CADASTRO (NM_PROD,TP_PRODUTO,CD_BARRAS,DT_VALIDADE,DT_CADASTRO) VALUES ('$nome_prod', '$tp_prod', '$cod_prod','$data_validade_prod', now())");
+   mysql_query("UPDATE TB_CADASTRO SET VALIDO = 'Produto Vencido!' WHERE DT_VALIDADE < now()");
+   mysql_query("UPDATE TB_CADASTRO SET VALIDO = 'Produto Consumivel' WHERE DT_VALIDADE >= now()");
    mysql_close($con);
    
 header('Location: http://www.dispenserapp.com.br/pages/cadastrar-produto.php?sucesso=1');

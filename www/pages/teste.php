@@ -39,14 +39,6 @@ $tipo_usu = "ff";
                 <div class="container">
                     <h2 class="title">Cadastrar um usuário:</h2>
                 </div>
-                <?php
-                $sucesso = $_GET["sucesso"];
-
-                if(!is_null($sucesso) && !empty($sucesso) && $sucesso == 1) {
-                    ?>
-                    <p>sucesso</p>
-                <?php } ?>
-
                 <form name="cad-usuario" action="form_gerencial.php" method="POST">
                     <div class="container">
 
@@ -71,6 +63,15 @@ $tipo_usu = "ff";
                                 margin-bottom: -6px;
                                 margin-right: 10px;"></span> Cadastrar!</button>
                         </div>
+                        <?php
+                        $sucesso = $_GET["sucesso"];
+
+                        if(!is_null($sucesso) && !empty($sucesso) && $sucesso == 1) {
+                            ?>
+                            <div class="item">
+                                <label class="form__label">Usuário cadastrado com sucesso!</label>
+                            </div>
+                        <?php } ?>
                     </div>
                 </form>
 

@@ -9,18 +9,8 @@ mysql_select_db("$nome_do_banco",$conecta) or die (mysql_error());
 $sql = mysql_query("SELECT NM_PROD
 	 ,TP_PRODUTO
      ,DT_VALIDADE 
-     ,case when DT_VALIDADE < now() then 'Produto Vencido!' else 'Produto Consumivel' end as 'VALIDADE'
-FROM TB_CADASTRO ORDER BY DT_VALIDADE DESC;");
-
-$count_valido = 0;
-$count_naovalido = 0;
-
-$teste = mysql_fetch_array($sql);
-
-if($teste['VALIDADE'] == 'Produto Consumivel')
-    $count_valido++;
-else
-    $count_naovalido++;
+     ,VALIDO
+     ,ID_PROD FROM TB_CADASTRO ORDER BY DT_VALIDADE DESC;");
 
 ?>
 <html>
@@ -42,7 +32,8 @@ else
                 <div class="logo">Dispenser<span>APP</span></div>
             </div>
             <div class="container">
-                <h2 class="title">Veja os usuário já cadastrados:</h2>
+                <h2 class="title">Veja os produtos já cadastrados:</h2>
+                <br>
                 <table class="table" id="cor-letra">
                     <tr>
                         <td><b>Nome produto</b></td>
@@ -56,17 +47,15 @@ else
                         <td><?php echo $n["NM_PROD"]; ?></td>
                         <td><?php echo $n["TP_PRODUTO"]; ?></td>
                         <td><?php echo $n["DT_VALIDADE"]; ?></td>
-                        <td><?php echo $n["VALIDADE"]; ?></td>
-                        <td><a href="editar.php?nome=<?php echo $n["NOME"]; ?>"> Editar </a> |
-                            <a href="excluir_usu.php?nome=<?php echo $n["NOME"]; ?>">Excluir </a>
+                        <td><?php echo $n["VALIDO"]; ?></td>
+                        <td><a href="editar_prod_interface.php?id_prod=<?php echo $n["ID_PROD"]; ?>"> Editar </a> |
+                            <a href="excluir_prod.php?id_prod=<?php echo $n["ID_PROD"]; ?>">Excluir </a>
                         </td>
                     </tr>
                     <?php }?>
                 </table>
             </div>
-            <div class="container">
-                <div id="piechart" style="width: 900px; height: 500px;"></div>
-            </div>
+
             <div class="col-12" id="footer">
                 Olá <span class="span--user">ADM</span>, hoje é dia <span class="span--bold">16/10/2017!</span> O produto mais próximo de vencimento é <span class="span--bold">31/12/2017!</span>
             </div>
@@ -74,28 +63,6 @@ else
     </div>
 
     <!-- Sessão scripts -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-
-            var data = google.visualization.arrayToDataTable([
-                ['Produtos Vencidos', 'Quantidade'],
-                ['Produto Consumivel', <?php echo $count_valido ?>],
-                ['Produto Vencido!',   <?php echo $count_naovalido ?>]
-            ]);
-
-            var options = {
-                title: 'Gráfico de Produtos'
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-            chart.draw(data, options);
-        }
-    </script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
     <script type="text/javascript" src="scripts/index.js"></script>
