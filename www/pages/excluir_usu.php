@@ -10,5 +10,5 @@ mysql_select_db("dispense_banco", $con);
 mysql_query("DELETE FROM TB_ADM WHERE NOME='$editar'");
 mysql_close($con);
 
-header('Location: http://www.dispenserapp.com.br/pages/teste.php');
+header('Location: http://www.dispenserapp.com.br/pages/gerencial.php');
 ?>

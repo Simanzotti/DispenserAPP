@@ -10,7 +10,7 @@ $con = mysql_connect("localhost", "dispense_banco", "788898Iamand") or
    mysql_query("UPDATE TB_ADM SET NOME = '$nome', PERFIL = '$perfil' WHERE NOME='$editar'");
    mysql_close($con);
    
-header('Location: http://www.dispenserapp.com.br/pages/teste.php');
+header('Location: http://www.dispenserapp.com.br/pages/gerencial.php');
 // require_once();
 ?>
    

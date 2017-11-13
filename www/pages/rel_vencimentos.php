@@ -6,18 +6,21 @@ $nome_do_banco = "dispense_banco";
 $conecta = mysql_connect("$servidor", "$nome_usuario", "$senha_usuario") or die (mysql_error());
 mysql_select_db("$nome_do_banco",$conecta) or die (mysql_error());
 
-$sql = mysql_query("SELECT NM_PROD
-	 ,TP_PRODUTO
-     ,DT_VALIDADE 
-     ,VALIDO
-     ,ID_PROD FROM TB_CADASTRO ORDER BY DT_VALIDADE DESC;");
-
 $sql_footer = mysql_query("select NM_PROD, 
                           CONCAT(RIGHT(cast(DT_VALIDADE as date),2),\"/\",SUBSTRING(cast(DT_VALIDADE as date),6,2),\"/\",LEFT(cast(DT_VALIDADE as date),4)) as 'DATA'
                             from TB_CADASTRO
                             where DT_VALIDADE > now()
                             LIMIT 1;
                             ");
+$sql_qnt_valido = mysql_query("SELECT COUNT(VALIDO) as 'valido' FROM TB_CADASTRO WHERE VALIDO = 'Produto Vencido!'");
+$sql_qnt_naovalidos = mysql_query("SELECT COUNT(VALIDO) as 'nvalido' FROM TB_CADASTRO WHERE VALIDO = 'Produto Consumivel'");
+
+while($r = mysql_fetch_array($sql_qnt_valido)){
+    $qnt_valido = $r['valido'];
+}
+while($f = mysql_fetch_array($sql_qnt_naovalidos)){
+    $qnt_naovalido = $f['nvalido'];
+}
 
 while($n = mysql_fetch_array($sql_footer)){
     $nome_prod = $n['NM_PROD'];
@@ -35,9 +38,6 @@ session_start();
 
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="../bootstrap/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/home.css">
     <link rel="stylesheet" type="text/css" href="../css/gerencial.css">
@@ -50,28 +50,19 @@ session_start();
                 <div class="logo">Dispenser<span>APP</span></div>
             </div>
             <div class="container">
-                <h2 class="title">Veja os produtos já cadastrados:</h2>
-                <br>
-                <table class="table" id="cor-letra">
-                    <tr>
-                        <td><b>Nome produto</b></td>
-                        <td><b>Tipo Produto</b></td>
-                        <td><b>Data de validade</b></td>
-                        <td><b>Posso consumir?</b></td>
-                        <td><b>Ação</b></td>
-                    </tr>
-                    <?php while($n = mysql_fetch_array($sql)){?>
-                    <tr>
-                        <td><?php echo $n["NM_PROD"]; ?></td>
-                        <td><?php echo $n["TP_PRODUTO"]; ?></td>
-                        <td><?php echo $n["DT_VALIDADE"]; ?></td>
-                        <td><?php echo $n["VALIDO"]; ?></td>
-                        <td><a href="editar_prod_interface.php?id_prod=<?php echo $n["ID_PROD"]; ?>"> Editar </a> |
-                            <a href="excluir_prod.php?id_prod=<?php echo $n["ID_PROD"]; ?>">Excluir </a>
-                        </td>
-                    </tr>
-                    <?php }?>
-                </table>
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-12">
+                        <h2 class="title">Veja abaixo a proporção de data de validade:</h2>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-12">
+                        <div id="piechart" style="width: 500px; height: 400px; fill: #1C232D"></div>
+                    </div>
+                </div>
             </div>
 
             <div class="col-12" id="footer">
@@ -81,8 +72,31 @@ session_start();
     </div>
 
     <!-- Sessão scripts -->
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Consumível?', 'Quantidade'],
+                ['Produto Vencido!', <?php echo $qnt_valido ?>],
+                ['Produto Consumivel\n', <?php echo $qnt_naovalido ?>]
+            ]);
+
+            var options = {
+                title: '% Produtos consumíveis ou não',
+                backgroundColor: 'transparent',
+                titleTextStyle: {color: '#fff'},
+                legend: {textStyle: {color: '#fff'}},
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+    </script>
     <script type="text/javascript" src="scripts/index.js"></script>
     <script type="text/javascript" src="scripts/login.js"></script>
 </body>

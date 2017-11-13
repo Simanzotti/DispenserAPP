@@ -50,32 +50,8 @@ session_start();
             <div class="container form">
                 <div class="row" style="margin-top: 10px;">
                     <div class="col-6">
-                        <a href="../pages/gerencial.php" class="button-100 button-2">
-                            <img src="../images/icons/settings.svg" class="button__img-2">Gerencial <br /> &nbsp;
-                        </a>
-                    </div>
-                    <div class="col-6">
-                        <a href="../pages/cadastrar-produto.php" class="button-100 button-2">
-                            <img src="../images/icons/barcode.svg" class="button__img-2">Cadastrar<br /> Produtos
-                        </a>
-                    </div>
-                </div>
-                <div class="row" style="margin-top: 10px;">
-                    <div class="col-6">
-                        <a href="../pages/listaprod.php" class="button-100 button-2">
-                            <img src="../images/icons/list.svg" class="button__img-2">Lista de Produtos <br /> &nbsp;
-                        </a>
-                    </div>
-                    <div class="col-6">
-                        <a href="../pages/adm.php" class="button-100 button-2">
-                            <img src="../images/icons/envelope-adm.svg" class="button__img-2">Contate o Adm <br /> &nbsp;
-                        </a>
-                    </div>
-                </div>
-                <div class="row" style="margin-top: 10px;">
-                    <div class="col-6">
-                        <a href="../pages/relatorios.php" class="button-100 button-2">
-                            <img src="../images/icons/relatorio.svg" class="button__img-2">Relatórios <br /> &nbsp;
+                        <a href="../pages/rel_vencimentos.php" class="button-100 button-2">
+                            <img src="../images/icons/relatorio2.svg" class="button__img-2">Produtos vencidos/não vencidos <br /> &nbsp;
                         </a>
                     </div>
                 </div>

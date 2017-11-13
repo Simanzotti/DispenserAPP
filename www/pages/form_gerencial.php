@@ -10,7 +10,7 @@ $con = mysql_connect("localhost", "dispense_banco", "788898Iamand") or
    mysql_query("INSERT INTO TB_ADM (NOME,SENHA,PERFIL) VALUES ('$nome', '$senha', '$perfil')");
    mysql_close($con);
    
-header('Location: http://www.dispenserapp.com.br/pages/teste.php?sucesso=1');
+header('Location: http://www.dispenserapp.com.br/pages/gerencial.php?sucesso=1');
 // require_once();
 ?>
    

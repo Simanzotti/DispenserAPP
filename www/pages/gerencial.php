@@ -1,18 +1,34 @@
 ﻿<?php
-$connect = mysql_connect("localhost", "dispense_banco", "788898Iamand") or
-die('Não foi possível conectar');
+//include ("pages/conexao.php");
 
-mysql_select_db("dispense_banco", $connect);
+$servidor = "localhost";
+$nome_usuario = "dispense_banco";
+$senha_usuario = "788898Iamand";
+$nome_do_banco = "dispense_banco";
+$conecta = mysql_connect("$servidor", "$nome_usuario", "$senha_usuario") or die (mysql_error());
+mysql_select_db("$nome_do_banco",$conecta) or die (mysql_error());
 
-$consulta = "SELECT * FROM TB_ADM";
+$sql = mysql_query("SELECT NOME, PERFIL FROM TB_ADM ORDER BY NOME");
 
-$con = $connect->query($consulta) or die($connect->error);
+$sql_footer = mysql_query("select NM_PROD, 
+                          CONCAT(RIGHT(cast(DT_VALIDADE as date),2),\"/\",SUBSTRING(cast(DT_VALIDADE as date),6,2),\"/\",LEFT(cast(DT_VALIDADE as date),4)) as 'DATA'
+                            from TB_CADASTRO
+                            where DT_VALIDADE > now()
+                            LIMIT 1;
+                            ");
 
-echo "teste";
+while($d = mysql_fetch_array($sql_footer)){
+    $nome_prod = $d['NM_PROD'];
+    $dt_validade = $d['DATA'];
+}
 
-mysql_close($connect);
+$date_dia = date("d");
+$date_mes = date("m");
+$date_ano = date("y");
+
+session_start();
+
 ?>
-
 
 <html>
 
@@ -28,104 +44,86 @@ mysql_close($connect);
 
 <body class="background">
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12" id="header">
-                <div class="logo">Dispenser<span>APP</span></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12" id="header">
+            <div class="logo">Dispenser<span>APP</span></div>
+        </div>
+
+        <div class="col-12" id="cadastro">
+            <div class="container">
+                <h2 class="title">Cadastrar um usuário:</h2>
             </div>
+            <form name="cad-usuario" action="form_gerencial.php" method="POST">
+                <div class="container">
 
-            <div class="col-12" id="cadastro">
-                <div class="andre">
-				<div class="container">
-                    <h2 class="title">Cadastrar um usuário:</h2>
-                </div>
-
-				<?php
-				$sucesso = $_GET["sucesso"];
-
-				if(!is_null($sucesso) && !empty($sucesso) && $sucesso == 1) {
-				?>
-					<p>sucesso</p>
-				<?php } ?>
-
-                    <table>
-                        <tr>
-                            <td>Nome</td>
-                            <td>Senha</td>
-                            <td>Perfil</td>
-                        </tr>
-                        <?php while ($dado = $con->fetch_array()){ ?>
-                        <tr>
-                            <td><?php echo $dado["NOME"]; ?></td>
-                            <td><?php echo $dado["SENHA"]; ?></td>
-                            <td><?php echo $dado["PERFIL"]; ?></td>
-                        </tr>
-                        <?php }?>
-                    </table>
-				
-                <form name="cad-usuario" action="form_gerencial.php" method="POST">
-                    <div class="container">
-
-                        <div class="item">
-                            <label class="form__label">Usuário:</label>
-                            <input class="form__input" type="text" placeholder="Usuário" name="uname" required>
-                        </div>
-                        <div class="item">
-                            <label class="form__label">Senha:</label>
-                            <input class="form__input" type="password" placeholder="Senha" name="psw" required>
-                        </div>
-                        <div class="item">
-                            <label class="form__label">Perfil:</label>
-                            <select name="perfil">
-                            <option value="adm">ADM</option>
-                            <option value="usuario">Usuário</option>
+                    <div class="item">
+                        <label class="form__label">Usuário:</label>
+                        <input class="form__input" type="text" placeholder="Usuário" name="uname" required>
+                    </div>
+                    <div class="item">
+                        <label class="form__label">Senha:</label>
+                        <input class="form__input" type="password" placeholder="Senha" name="psw" required>
+                    </div>
+                    <div class="item">
+                        <label class="form__label">Perfil:</label>
+                        <select name="perfil">
+                            <option value="Administrador">Administrador</option>
+                            <option value="Usuario">Usuário</option>
                         </select>
-                        </div>
-                        <div class="item">
-                            <button class="botao-cadastrar cadastrar-blue"> <span class="user" style=" width: 28PX;
+                    </div>
+                    <div class="item">
+                        <button class="botao-cadastrar cadastrar-blue"> <span class="user" style=" width: 28PX;
                                 height: 28PX;
                                 margin-bottom: -6px;
                                 margin-right: 10px;"></span> Cadastrar!</button>
-                        </div>
                     </div>
-                </form>
-				
-				
-                <br />
-                <div class="container">
-                    <h2 class="title">Deletar usuário:</h2>
-                    <div class="item">
-                        <label class="form__label"></label>
-                        <select>
-                        <option value="marcel">Marcel</option>
-                        <option value="marcos">Marcos</option>
-                        <option value="rodolfo"></option>
-                        <option value="anderson">Anderson</option>
-                        </select>
-                    </div>
-                    <div class="item">
-                        <button class="botao-cadastrar cadastrar-blue"> <span class="delete" style=" width: 28PX;
-                            height: 28PX;
-                            margin-bottom: -6px;
-                            margin-right: 10px;"></span> Deletar usuário!</button>
-                    </div>
-                </div>
-				</div>
-            </div>
+                    <?php
+                    $sucesso = $_GET["sucesso"];
 
-            <div class="col-12" id="footer">
-                Olá <span class="span--user">ADM</span>, hoje é dia <span class="span--bold">16/10/2017!</span> O produto mais próximo de vencimento é <span class="span--bold">31/12/2017!</span>
+                    if(!is_null($sucesso) && !empty($sucesso) && $sucesso == 1) {
+                        ?>
+                        <div class="item">
+                            <label class="form__label">Usuário cadastrado com sucesso!</label>
+                        </div>
+                    <?php } ?>
+                </div>
+            </form>
+
+            <div class="container">
+                <h2 class="title">Veja os usuário já cadastrados:</h2>
+                <table class="table" id="cor-letra">
+                    <tr>
+                        <td><b>Nome</b></td>
+                        <td><b>Nível de acesso</b></td>
+                        <td><b>Ação</b></td>
+                    </tr>
+                    <?php while($n = mysql_fetch_array($sql)){ ?>
+                        <tr>
+                            <td><?php echo $n["NOME"]; ?></td>
+                            <td><?php echo $n["PERFIL"]; ?></td>
+                            <td><a href="editar.php?nome=<?php echo $n["NOME"]; ?>"> Editar Usuário </a> |
+                                <a href="excluir_usu.php?nome=<?php echo $n["NOME"]; ?>">Excluir Usuário </a>
+                            </td>
+                        </tr>
+                    <?php }?>
+                </table>
             </div>
         </div>
+
+        <div class="col-12" id="footer">
+            Olá <span class="span--user"><?php echo $_SESSION['uname'] ?></span>, hoje é dia <span class="span--user"><?php echo $date_dia."/".$date_mes."/".$date_ano?></span>. O produto <span class="span--user"><?php echo $nome_prod ?></span> está próximo de vencer, com a data de validade <span class="span--user"><?php echo $dt_validade ?></span>
+        </div>
     </div>
+</div>
 
 
-    <!-- Sessão scripts -->
+<!-- Sessão scripts -->
 
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
-    <script type="text/javascript" src="scripts/index.js"></script>
-    <script type="text/javascript" src="scripts/login.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="scripts/platformOverrides.js"></script>
+<script type="text/javascript" src="scripts/index.js"></script>
+<script type="text/javascript" src="scripts/login.js"></script>
 </body>
 
 </html>
