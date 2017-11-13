@@ -38,13 +38,21 @@ session_start();
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="../bootstrap/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/home.css">
+    <style type="text/css">
+        a:link
+        {
+            text-decoration:none;
+        }
+    </style>
 </head>
 
 <body class="background">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12" id="header">
-                <div class="logo">Dispenser<span>APP</span></div>
+                <a href="../pages/home.php">
+                    <div class="logo">Dispenser<span>APP</span></div>
+                </a>
             </div>
 
             <div class="container form">
@@ -76,6 +84,11 @@ session_start();
                     <div class="col-6">
                         <a href="../pages/relatorios.php" class="button-100 button-2">
                             <img src="../images/icons/relatorio.svg" class="button__img-2">Relatórios <br /> &nbsp;
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="../pages/logout.php" class="button-100 button-2">
+                            <img src="../images/icons/settings.svg" class="button__img-2">Sair do sistema <br /> &nbsp;
                         </a>
                     </div>
                 </div>

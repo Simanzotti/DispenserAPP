@@ -12,14 +12,22 @@ $sql_footer = mysql_query("select NM_PROD,
                             where DT_VALIDADE > now()
                             LIMIT 1;
                             ");
-$sql_qnt_valido = mysql_query("SELECT COUNT(VALIDO) as 'valido' FROM TB_CADASTRO WHERE VALIDO = 'Produto Vencido!'");
-$sql_qnt_naovalidos = mysql_query("SELECT COUNT(VALIDO) as 'nvalido' FROM TB_CADASTRO WHERE VALIDO = 'Produto Consumivel'");
+$sql_qnt_frios = mysql_query("SELECT COUNT(TP_PRODUTO) as 'frios' FROM TB_CADASTRO WHERE TP_PRODUTO = 'Frios'");
+$sql_qnt_bebida = mysql_query("SELECT COUNT(TP_PRODUTO) as 'bebida' FROM TB_CADASTRO WHERE TP_PRODUTO = 'Bebida'");
+$sql_qnt_doce = mysql_query("SELECT COUNT(TP_PRODUTO) as 'doce' FROM TB_CADASTRO WHERE TP_PRODUTO = 'Doce'");
+$sql_qnt_outros = mysql_query("SELECT COUNT(TP_PRODUTO) as 'outros' FROM TB_CADASTRO WHERE TP_PRODUTO = 'Outros'");
 
-while($r = mysql_fetch_array($sql_qnt_valido)){
-    $qnt_valido = $r['valido'];
+while($r = mysql_fetch_array($sql_qnt_frios)){
+    $qnt_frios = $r['frios'];
 }
-while($f = mysql_fetch_array($sql_qnt_naovalidos)){
-    $qnt_naovalido = $f['nvalido'];
+while($f = mysql_fetch_array($sql_qnt_bebida)){
+    $qnt_bebidas = $f['bebida'];
+}
+while($a = mysql_fetch_array($sql_qnt_doce)){
+    $qnt_doce = $a['doce'];
+}
+while($h = mysql_fetch_array($sql_qnt_outros)){
+    $qnt_outros = $h['outros'];
 }
 
 while($n = mysql_fetch_array($sql_footer)){
@@ -60,7 +68,7 @@ session_start();
             <div class="container">
                 <div class="row" style="margin-top: 10px;">
                     <div class="col-12">
-                        <h2 class="title">Veja abaixo a proporção de data de validade:</h2>
+                        <h2 class="title">Veja abaixo a relação por produto:</h2>
                         <br>
                     </div>
                 </div>
@@ -68,7 +76,7 @@ session_start();
             <div class="container">
                 <div class="row" style="margin-top: 10px;">
                     <div class="col-12">
-                        <div id="piechart" style="width: 500px; height: 400px; fill: #1C232D"></div>
+                        <div id="chart_div" style="width: 700px; height: 400px; fill: #1C232D"></div>
                     </div>
                 </div>
             </div>
@@ -82,25 +90,32 @@ session_start();
     <!-- Sessão scripts -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
+        google.charts.load('current', {packages: ['corechart', 'bar']});
+        google.charts.setOnLoadCallback(drawBasic);
 
-        function drawChart() {
+        function drawBasic() {
 
             var data = google.visualization.arrayToDataTable([
-                ['Consumível?', 'Quantidade'],
-                ['Produto Vencido!', <?php echo $qnt_valido ?>],
-                ['Produto Consumivel\n', <?php echo $qnt_naovalido ?>]
+                ['Tipo Produto', 'Quantidade Produtos',],
+                ['Frios', <?php echo $qnt_frios ?>],
+                ['Bebida', <?php echo $qnt_bebidas ?>],
+                ['Doce', <?php echo $qnt_doce ?>],
+                ['Outros', <?php echo $qnt_outros ?>]
             ]);
 
             var options = {
-                title: '% Produtos consumíveis ou não',
-                backgroundColor: 'transparent',
+                title: 'Quantidade por tipo de produto',
                 titleTextStyle: {color: '#fff'},
-                legend: {textStyle: {color: '#fff'}},
+                chartArea: {width: '50%'},
+                vAxis: {
+                    textStyle: {color: '#fff' },
+                    baselineColor: {color: '#fff' }
+                },
+                backgroundColor: 'transparent',
+                legend: {textStyle: {color: '#fff'}}
             };
 
-            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
 
             chart.draw(data, options);
         }

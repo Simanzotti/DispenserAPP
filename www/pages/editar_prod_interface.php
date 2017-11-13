@@ -52,14 +52,21 @@ session_start();
     <link rel="stylesheet" type="text/css" href="../css/gerencial.css">
     <link rel="stylesheet" type="text/css" href="../css/cadastrar-prod.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+    <style type="text/css">
+        a:link
+        {
+            text-decoration:none;
+        }
+    </style>
 </head>
 
 <body class="background">
 <div class="container-fluid">
     <div class="row">
         <div class="col-12" id="header">
-            <div class="logo">Dispenser<span>APP</span></div>
+            <a href="../pages/home.php">
+                <div class="logo">Dispenser<span>APP</span></div>
+            </a>
         </div>
 
         <div class="col-12 form" id="cadastro">
