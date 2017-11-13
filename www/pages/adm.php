@@ -67,9 +67,18 @@ session_start();
                 </div>
 
                 <div class="col-12 contato">
-                    <p>
-                        <img src="../images/icons/envelope.svg" class="contato__img"> <a href="mailto:finaltec.suporte@outlook.com.br" class="link"> finaltec.suporte@outlook.com.br </a>
-                    </p>
+                    <div class="item">
+                        <label class="form__label">Usuário:</label>
+                        <input class="form__input" type="text" placeholder="Usuário" name="unamemail" required>
+                    </div>
+                    <div class="item">
+                        <label class="form__label">Assunto:</label>
+                        <input class="form__input" type="text" placeholder="Senha" name="psw" required>
+                    </div>
+                    <div class="item">
+                        <label class="form__label">Comentários:</label>
+                        <textarea class="form__label" maxlength="8000"></textarea>
+                    </div>
                 </div>
             </div>
 

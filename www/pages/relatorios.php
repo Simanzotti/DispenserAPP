@@ -76,11 +76,6 @@ session_start();
                             <img src="../images/icons/relatorio2.svg" class="button__img-2">Cadastrados por data <br /> &nbsp;
                         </a>
                     </div>
-                    <div class="col-6">
-                        <a href="../pages/rel_tp_produto.php" class="button-100 button-2">
-                            <img src="../images/icons/relatorio2.svg" class="button__img-2">Produtos vencidos/não vencidos <br /> &nbsp;
-                        </a>
-                    </div>
                 </div>
             </div>
             <div class="col-12" id="footer">

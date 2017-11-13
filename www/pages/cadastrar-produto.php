@@ -58,7 +58,7 @@ session_start();
             </div>
         </div>
 
-        <div class="col-12 form" id="cadastro">
+        <div class="col-12 form" id="cadastro" style="min-height: calc(100vh - 166px);">
                 <div class="container">
                     <h2 class="title">Cadastrar um produto manual:</h2>
                 </div>
@@ -80,12 +80,29 @@ session_start();
                             <label class="form__label">Data de validade:</label>
                             <input type="text" class="form__input" id="datavalidade" name="data-validade" required>
                         </div>
-                        <div class="item">
-                            <button class="botao-cadastrar cadastrar-blue"><span class="add" style=" width: 28PX;
+                        <?php
+                        $mostra_div = $_SESSION['perfil'];
+
+                        if(!is_null($mostra_div) && !empty($mostra_div) && $mostra_div == 'Administrador'){
+                            ?>
+                            <div class="item">
+                                <button class="botao-cadastrar cadastrar-blue"><span class="add" style=" width: 28PX;
                                 height: 28PX;
                                 margin-bottom: -6px;
                                 margin-right: 10px;"></span> Cadastrar Produto!</button>
-                        </div>
+                            </div>
+                        <?php }?>
+
+                        <?php
+                        $mostra_div = $_SESSION['perfil'];
+
+                        if(!is_null($mostra_div) && !empty($mostra_div) && $mostra_div == 'Usuario'){
+                        ?>
+                            <div class="item">
+                                <label class="form__label">Para cadastrar produtos é necessário ter perfil de Administrador!</label>
+                            </div>
+                        <?php } ?>
+
                         <?php
                         $sucesso = $_GET["sucesso"];
 

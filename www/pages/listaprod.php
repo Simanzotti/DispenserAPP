@@ -8,7 +8,7 @@ mysql_select_db("$nome_do_banco",$conecta) or die (mysql_error());
 
 $sql = mysql_query("SELECT NM_PROD
 	 ,TP_PRODUTO
-     ,DT_VALIDADE 
+     ,CONCAT(RIGHT(cast(DT_VALIDADE as date),2),\"/\",SUBSTRING(cast(DT_VALIDADE as date),6,2),\"/\",LEFT(cast(DT_VALIDADE as date),4)) as 'DT_VALIDADE' 
      ,VALIDO
      ,ID_PROD FROM TB_CADASTRO ORDER BY DT_VALIDADE DESC;");
 
@@ -18,6 +18,14 @@ $sql_footer = mysql_query("select NM_PROD,
                             where DT_VALIDADE > now()
                             LIMIT 1;
                             ");
+
+$sql_filtro_anomes = mysql_query("select distinct DT_CADASTRO as 'parametro',
+ CONCAT(RIGHT(cast(DT_VALIDADE as date),2),\"/\",SUBSTRING(cast(DT_VALIDADE as date),6,2),\"/\",LEFT(cast(DT_VALIDADE as date),4)) as 'anomesdia' from TB_CADASTRO;");
+
+while($anomes = mysql_fetch_array($sql_filtro_anomes)){
+    $anomesdia = $anomes['anomesdia'];
+    $parametros = $anomes['parametro'];
+}
 
 while($n = mysql_fetch_array($sql_footer)){
     $nome_prod = $n['NM_PROD'];
@@ -58,15 +66,37 @@ session_start();
                 </a>
             </div>
             <div class="container">
-                <h2 class="title">Veja os produtos já cadastrados:</h2>
+                <h2 class="title">Veja os produtos já cadastrados por data:</h2>
+
                 <br>
+                <form name="lista-produtos" action="lista_filtro_prod.php?parametro=<?php echo $parametros ?>" method="POST">
+                    <div class="item">
+                        <label class="form__label">Data:</label>
+                        <select name="filtro">
+                            <option value="<?php echo $parametros ?>"><?php echo $anomesdia ?></option>
+                        </select>
+                    </div>
+                    <div class="item">
+                        <button class="botao-cadastrar cadastrar-blue"><span class="search" style=" width: 28PX;
+                                    height: 28PX;
+                                    margin-bottom: -6px;
+                                    margin-right: 10px;"></span> Listar </button>
+                    </div>
+                </form>
+
+                <br>
+
                 <table class="table" id="cor-letra">
                     <tr>
                         <td><b>Nome produto</b></td>
                         <td><b>Tipo Produto</b></td>
                         <td><b>Data de validade</b></td>
                         <td><b>Posso consumir?</b></td>
-                        <td><b>Ação</b></td>
+                        <?php $mostra_td = $_SESSION['perfil'];
+                        if(!is_null($mostra_td) && !empty($mostra_td) && $mostra_td == 'Administrador'){
+                            ?>
+                            <td><b>Ação</b></td>
+                        <?php }?>
                     </tr>
                     <?php while($n = mysql_fetch_array($sql)){?>
                     <tr>
@@ -74,9 +104,13 @@ session_start();
                         <td><?php echo $n["TP_PRODUTO"]; ?></td>
                         <td><?php echo $n["DT_VALIDADE"]; ?></td>
                         <td><?php echo $n["VALIDO"]; ?></td>
+                        <?php $mostra_td = $_SESSION['perfil'];
+                        if(!is_null($mostra_td) && !empty($mostra_td) && $mostra_td == 'Administrador'){
+                        ?>
                         <td><a href="editar_prod_interface.php?id_prod=<?php echo $n["ID_PROD"]; ?>"> Editar </a> |
                             <a href="excluir_prod.php?id_prod=<?php echo $n["ID_PROD"]; ?>">Excluir </a>
                         </td>
+                        <?php }?>
                     </tr>
                     <?php }?>
                 </table>

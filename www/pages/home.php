@@ -54,8 +54,7 @@ session_start();
                     <div class="logo">Dispenser<span>APP</span></div>
                 </a>
             </div>
-
-            <div class="container form">
+            <div class="container" style="min-height: calc(100vh - 166px);">
                 <div class="row" style="margin-top: 10px;">
                     <div class="col-6">
                         <a href="../pages/gerencial.php" class="button-100 button-2">
@@ -76,7 +75,7 @@ session_start();
                     </div>
                     <div class="col-6">
                         <a href="../pages/adm.php" class="button-100 button-2">
-                            <img src="../images/icons/envelope-adm.svg" class="button__img-2">Contate o Adm <br /> &nbsp;
+                            <img src="../images/icons/envelope-adm.svg" class="button__img-2">Contate o Administrador <br /> &nbsp;
                         </a>
                     </div>
                 </div>
@@ -90,6 +89,10 @@ session_start();
                         <a href="../pages/logout.php" class="button-100 button-2">
                             <img src="../images/icons/settings.svg" class="button__img-2">Sair do sistema <br /> &nbsp;
                         </a>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row" style="margin-top: 10px;">
                     </div>
                 </div>
             </div>
