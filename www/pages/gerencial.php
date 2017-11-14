@@ -58,7 +58,7 @@ session_start();
             </a>
         </div>
 
-        <div class="col-12" id="cadastro">
+        <div class="col-12" id="cadastro" style="min-height: calc(100vh - 166px);">
             <div class="container">
                 <h2 class="title">Cadastrar um usuário:</h2>
             </div>

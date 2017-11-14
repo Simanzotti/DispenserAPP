@@ -65,7 +65,7 @@ session_start();
                     </div>
                 </div>
             </div>
-            <div class="container">
+            <div class="container" style="min-height: calc(100vh - 166px);">
                 <div class="row" style="margin-top: 10px;">
                     <div class="col-12">
                         <div id="piechart" style="width: 500px; height: 400px; fill: #1C232D"></div>

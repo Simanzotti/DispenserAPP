@@ -55,7 +55,7 @@ session_start();
                 </a>
             </div>
 
-            <div class="container form">
+            <div class="container" style="min-height: calc(100vh - 166px);">
                 <div class="row" style="margin-top: 10px;">
                     <div class="col-6">
                         <a href="../pages/rel_vencimentos.php" class="button-100 button-2">
@@ -65,15 +65,6 @@ session_start();
                     <div class="col-6">
                         <a href="../pages/rel_tp_produto.php" class="button-100 button-2">
                             <img src="../images/icons/relatorio2.svg" class="button__img-2">Tipo de produtos <br /> &nbsp;
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="container form">
-                <div class="row" style="margin-top: 10px;">
-                    <div class="col-6">
-                        <a href="../pages/rel_cad_data.php" class="button-100 button-2">
-                            <img src="../images/icons/relatorio2.svg" class="button__img-2">Cadastrados por data <br /> &nbsp;
                         </a>
                     </div>
                 </div>

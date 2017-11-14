@@ -69,7 +69,7 @@ session_start();
             </a>
         </div>
 
-        <div class="col-12 form" id="cadastro">
+        <div class="col-12 form" id="cadastro" style="min-height: calc(100vh - 166px);">
             <div class="container">
                 <h2 class="title">Editar produto <b><?php echo $nome_produto?></b>:</h2>
             </div>

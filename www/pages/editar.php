@@ -53,13 +53,13 @@ $editar = $_GET["nome"];
 <body class="background">
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="col-12" id="header">
         <a href="../pages/home.php">
             <div class="logo">Dispenser<span>APP</span></div>
         </a>
     </div>
 
-    <div class="col-12" id="cadastro">
+    <div class="col-12" id="cadastro" style="min-height: calc(100vh - 166px);">
                 <div class="container">
                     <h2 class="title">Editar usuário <b><?php echo $editar?></b>:</h2>
                 </div>
@@ -84,6 +84,12 @@ $editar = $_GET["nome"];
                                 <option value="Administrador">Administrador</option>
                                 <option value="Usuario">Usuário</option>
                             </select>
+                        </div>
+                        <div class="item">
+                            <button class="botao-cadastrar cadastrar-blue"><span class="settings" style=" width: 28PX;
+                                height: 28PX;
+                                margin-bottom: -6px;
+                                margin-right: 10px;"></span> Editar Usuário!</button>
                         </div>
                     </div>
                 </form>

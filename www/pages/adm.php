@@ -53,7 +53,7 @@ session_start();
                 </a>
             </div>
 
-            <div class="container form" id="cadastro">
+            <div class="container form" id="cadastro" style="min-height: calc(100vh - 166px);">
                 <div class="col-12 contato">
                     <p>
                         <img src="../images/icons/facebook-logo.svg" class="contato__img"> <a href="https://www.facebook.com/finaltec/" class="link" target="_blank">https://www.facebook.com/finaltec/</a>
