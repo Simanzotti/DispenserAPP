@@ -83,7 +83,15 @@ session_start();
                                     margin-right: 10px;"></span> Listar </button>
                     </div>
                 </form>
+                <?php
+                $sucesso = $_GET["sucesso"];
 
+                if(!is_null($sucesso) && !empty($sucesso) && $sucesso == 2) {
+                    ?>
+                    <div class="item">
+                        <label class="form__label">Produto excluído com sucesso!</label>
+                    </div>
+                <?php } ?>
                 <br>
 
                 <table class="table" id="cor-letra">

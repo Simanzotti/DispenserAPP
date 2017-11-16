@@ -74,15 +74,16 @@ session_start();
                         </a>
                     </div>
                     <div class="col-6">
-                        <a href="../pages/adm.php" class="button-100 button-2">
-                            <img src="../images/icons/envelope-adm.svg" class="button__img-2">Contate o Administrador <br /> &nbsp;
+                        <a href="../pages/relatorios.php" class="button-100 button-2">
+                            <img src="../images/icons/relatorio.svg" class="button__img-2">Relatórios <br /> &nbsp;
                         </a>
                     </div>
+
                 </div>
                 <div class="row" style="margin-top: 10px;">
                     <div class="col-6">
-                        <a href="../pages/relatorios.php" class="button-100 button-2">
-                            <img src="../images/icons/relatorio.svg" class="button__img-2">Relatórios <br /> &nbsp;
+                        <a href="../pages/adm.php" class="button-100 button-2">
+                            <img src="../images/icons/envelope-adm.svg" class="button__img-2">Contate o Administrador <br /> &nbsp;
                         </a>
                     </div>
                     <div class="col-6">

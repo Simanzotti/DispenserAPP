@@ -8,5 +8,10 @@ mysql_select_db("dispense_banco", $con);
 mysql_query("DELETE FROM TB_CADASTRO WHERE ID_PROD='$editar'");
 mysql_close($con);
 
-header('Location: http://www.dispenserapp.com.br/pages/listaprod.php?sucesso=2');
+//header('Location: http://www.dispenserapp.com.br/pages/listaprod.php?sucesso=2');
 ?>
+<script>
+    window.setTimeout(function () {
+        window.location.href="http://www.dispenserapp.com.br/pages/listaprod.php?sucesso=2";
+    },200);
+</script>

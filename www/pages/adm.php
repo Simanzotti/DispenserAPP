@@ -65,21 +65,33 @@ session_start();
                         <img src="../images/icons/call-answer.svg" class="contato__img"> <a href="tel:+1199999999" class="link"> (11) 99999-9999 </a>
                     </p>
                 </div>
+                <form name="enviamail" action="envia_email.php" method="POST">
+                    <div class="col-12 contato">
+                        <div class="item">
+                            <label class="form__label">Assunto:</label>
+                            <input class="form__input" type="text" placeholder="Assunto" name="assunto" required>
+                        </div>
+                        <div class="item">
+                            <label class="form__label">Comentários:</label>
+                            <textarea  name="mensagem" cols="45" rows="5" placeholder="Escreva sua mensagem aqui"></textarea>
+                        </div>
+                        <div class="item">
+                            <button class="botao-cadastrar cadastrar-blue"><span class="mail" style=" width: 28PX;
+                                    height: 28PX;
+                                    margin-bottom: -6px;
+                                    margin-right: 10px;"></span> Enviar Email!</button>
+                        </div>
+                    </div>
+                </form>
+                <?php
+                $sucesso = $_GET["sucesso"];
 
-                <div class="col-12 contato">
+                if(!is_null($sucesso) && !empty($sucesso) && $sucesso == 20) {
+                    ?>
                     <div class="item">
-                        <label class="form__label">Usuário:</label>
-                        <input class="form__input" type="text" placeholder="Usuário" name="unamemail" required>
+                        <label class="form__label">Email enviado com sucesso!</label>
                     </div>
-                    <div class="item">
-                        <label class="form__label">Assunto:</label>
-                        <input class="form__input" type="text" placeholder="Senha" name="psw" required>
-                    </div>
-                    <div class="item">
-                        <label class="form__label">Comentários:</label>
-                        <textarea class="form__label" maxlength="8000"></textarea>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
 
             <div class="col-12" id="footer">

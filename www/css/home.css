@@ -320,6 +320,14 @@ a.fill-div {
     background-image: url(../images/icons/user-shape.svg)
 }
 
+.mail {
+    background-size: 100%;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-image: url(../images/icons/envelope.svg)
+}
+
+
 .settings {
     background-size: 100%;
     display: inline-block;

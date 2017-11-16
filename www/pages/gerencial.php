@@ -121,6 +121,15 @@ session_start();
                             <label class="form__label">Usuário excluido com sucesso!</label>
                         </div>
                     <?php } ?>
+                    <?php
+                    $sucesso = $_GET["sucesso"];
+
+                    if(!is_null($sucesso) && !empty($sucesso) && $sucesso == 10) {
+                        ?>
+                        <div class="item">
+                            <label class="form__label">Usuário editado com sucesso!</label>
+                        </div>
+                    <?php } ?>
                 </div>
             </form>
 
