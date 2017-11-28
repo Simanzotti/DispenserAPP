@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84cc94a9-29bc-47f4-a308-a927f6667b8e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/pages/envia_email.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/home.css" afterPath="$PROJECT_DIR$/www/css/home.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/pages/adm.php" afterPath="$PROJECT_DIR$/www/pages/adm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/pages/edita_usuario.php" afterPath="$PROJECT_DIR$/www/pages/edita_usuario.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/pages/excluir_prod.php" afterPath="$PROJECT_DIR$/www/pages/excluir_prod.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/pages/gerencial.php" afterPath="$PROJECT_DIR$/www/pages/gerencial.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/pages/home.php" afterPath="$PROJECT_DIR$/www/pages/home.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/pages/listaprod.php" afterPath="$PROJECT_DIR$/www/pages/listaprod.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/pages/envia_email.php" afterPath="$PROJECT_DIR$/www/pages/envia_email.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,8 +16,8 @@
       <file leaf-file-name="adm.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/pages/adm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+            <state relative-caret-position="25">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="6" selection-end-column="66" />
               <folding>
                 <marker date="1510807491522" expanded="true" signature="318:635" ph="select NM_PR... TB_CADASTRO" />
               </folding>
@@ -36,10 +28,10 @@
       <file leaf-file-name="envia_email.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/pages/envia_email.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="575">
+              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
-                <marker date="1510809331655" expanded="true" signature="281:373" ph="INSERT INTO TB_EMAIL... " />
+                <marker date="1510809968205" expanded="true" signature="426:518" ph="INSERT INTO TB_EMAIL... " />
               </folding>
             </state>
           </provider>
@@ -135,10 +127,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="365" />
-    <option name="y" value="28" />
+    <option name="x" value="-10" />
+    <option name="y" value="23" />
     <option name="width" value="1386" />
-    <option name="height" value="788" />
+    <option name="height" value="732" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -169,12 +161,6 @@
               <item name="br.com.dispenserAPP" type="b2602c69:ProjectViewProjectNode" />
               <item name="br.com.dispenserAPP" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="www" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="br.com.dispenserAPP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="br.com.dispenserAPP" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="www" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="br.com.dispenserAPP" type="b2602c69:ProjectViewProjectNode" />
@@ -235,16 +221,15 @@
       <workItem from="1510334114778" duration="7019000" />
       <workItem from="1510455116854" duration="38913000" />
       <workItem from="1510592783956" duration="16360000" />
-      <workItem from="1510797635706" duration="5373000" />
+      <workItem from="1510797635706" duration="5630000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80415000" />
+    <option name="totallyTimeSpent" value="80672000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20416667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -588,16 +573,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/pages/adm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding>
-            <marker date="1510807491522" expanded="true" signature="318:635" ph="select NM_PR... TB_CADASTRO" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/pages/home.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -629,12 +604,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/pages/adm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="6" selection-end-column="66" />
+          <folding>
+            <marker date="1510807491522" expanded="true" signature="318:635" ph="select NM_PR... TB_CADASTRO" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/pages/envia_email.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="575">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
-            <marker date="1510809331655" expanded="true" signature="281:373" ph="INSERT INTO TB_EMAIL... " />
+            <marker date="1510809968205" expanded="true" signature="426:518" ph="INSERT INTO TB_EMAIL... " />
           </folding>
         </state>
       </provider>

@@ -4,10 +4,13 @@ $usuario = $_SESSION['uname'];
 $assunto = $_POST['assunto'];
 $mensagem_sql = $_POST['mensagem'];
 
-$con = mysql_connect("localhost", "dispense_banco", "788898Iamand") or
-die('Não foi possível conectar');
+$servidor = "localhost";
+$nome_usuario = "dispense_banco";
+$senha_usuario = "788898Iamand";
+$nome_do_banco = "dispense_banco";
+$conecta = mysql_connect("$servidor", "$nome_usuario", "$senha_usuario") or die (mysql_error());
+mysql_select_db("$nome_do_banco",$conecta) or die (mysql_error());
 
-mysql_select_db("dispense_banco", $con);
 mysql_query("INSERT INTO TB_EMAIL (USUARIO,ASSUNTO,EMAIL) VALUES ('$usuario', '$assunto', '$mensagem_sql'");
 mysql_close($con);
 
