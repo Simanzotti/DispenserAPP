@@ -34,12 +34,15 @@ session_start();
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-
+    <script src="../scripts/jquery.js"></script>
+    <script type="text/javascript" src="scripts/datapicker/datepicker.min.js"></script>
+    <link  href="scripts/datapicker/datepicker.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../bootstrap/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../bootstrap/bootstrap-datepicker.min.css">
     <link rel="stylesheet" type="text/css" href="../css/home.css">
     <link rel="stylesheet" type="text/css" href="../css/gerencial.css">
     <link rel="stylesheet" type="text/css" href="../css/cadastrar-prod.css">
+    
     <style type="text/css">
         a:link
         {
@@ -78,7 +81,8 @@ session_start();
                         </div>
                         <div class="item">
                             <label class="form__label">Data de validade:</label>
-                            <input type="text" class="form__input" id="datavalidade" name="data-validade" required>
+                            <input type="text" class="form__input" id="datavalidade" name="data-validade" data-toggle="datepicker" required>
+                     
                         </div>
                         <?php
                         $mostra_div = $_SESSION['perfil'];
@@ -134,12 +138,19 @@ session_start();
         </div>
     </div>
 
+   <script>
+        $( document ).ready(function() {
+            $('[data-toggle="datepicker"]').datepicker();
+    });  
+   </script>
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
-    <script type="text/javascript" src="scripts/index.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../bootstrap/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="../bootstrap/bootstrap-datepicker.pt-BR.min.js"></script>
+   
 </body>
 
 </html>
